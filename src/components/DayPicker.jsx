@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
 import cx from 'classnames';
@@ -170,10 +169,6 @@ export default class DayPicker extends React.Component {
         this.adjustDayPickerHeight();
       }
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
   }
 
   componentDidUpdate(prevProps, prevState) {

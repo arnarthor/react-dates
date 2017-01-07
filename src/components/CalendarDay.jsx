@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 
@@ -31,14 +30,10 @@ const defaultProps = {
   onDayTouchTap() {},
 };
 
-export default class CalendarDay extends React.Component {
+export default class CalendarDay extends React.PureComponent {
   constructor(props) {
     super(props);
     this.hasActiveTouchStart = false;
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
   }
 
   handleDayClick(day, modifiers, e) {

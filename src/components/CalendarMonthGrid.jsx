@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import shallowCompare from 'react-addons-shallow-compare';
 import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import cx from 'classnames';
@@ -60,7 +59,7 @@ const defaultProps = {
   monthFormat: 'MMMM YYYY', // english locale
 };
 
-export default class CalendarMonthGrid extends React.Component {
+export default class CalendarMonthGrid extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -71,10 +70,6 @@ export default class CalendarMonthGrid extends React.Component {
   componentDidMount() {
     this.container = ReactDOM.findDOMNode(this.containerRef);
     this.container.addEventListener('transitionend', this.onTransitionEnd);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
   }
 
   componentDidUpdate() {
